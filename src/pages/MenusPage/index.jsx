@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getMenu } from "../../redux/features/menu/menuSlice"
 
 const MenusPage = () => {
+  const dispatch = useDispatch()
   const { list } = useSelector((state) => state.menu);
+
+  useEffect(() => {
+    dispatch(getMenu())
+  }, [])
 
   return (
     <div>
